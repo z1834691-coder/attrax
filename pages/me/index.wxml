@@ -1,0 +1,20 @@
+<view class="page" wx:if="{{s.openid}}">
+  <view class="head">
+    <image class="av" src="{{s.userInfo.avatarUrl}}" mode="aspectFill" />
+    <view>
+      <view class="n">{{s.userInfo.nickName || '旅人'}}</view>
+      <view class="text-muted small">已加入 {{joinDays}} 天 · 累计 {{cardCount}} 张卡片</view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="cell" bindtap="goFav">我的收藏</view>
+    <view class="cell" bindtap="noop">我的分享 <text class="text-muted">（一期）</text></view>
+    <view class="cell" bindtap="noop">订阅管理</view>
+    <view class="cell" bindtap="noop">消息通知</view>
+    <view class="cell" bindtap="noop">关于与帮助</view>
+  </view>
+
+  <button class="out" bindtap="logout">退出当前账号</button>
+</view>
+<view class="empty" wx:else bindtap="goLogin">去登录</view>

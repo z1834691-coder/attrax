@@ -1,0 +1,44 @@
+.page {
+  padding: 40rpx 32rpx;
+}
+
+.h1 {
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.body {
+  font-size: 28rpx;
+  line-height: 1.5;
+  margin-bottom: 32rpx;
+}
+
+.row {
+  display: flex;
+  gap: 20rpx;
+  flex-direction: column;
+}
+
+.tile {
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 32rpx;
+  font-size: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag {
+  font-size: 20rpx;
+  color: #999;
+  border: 1rpx solid #e5e0d8;
+  border-radius: 4rpx;
+  padding: 2rpx 8rpx;
+}
+
+.text-muted {
+  color: #666;
+}

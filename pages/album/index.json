@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "气味相册",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "polaroid-card": "/components/polaroid-card/polaroid-card"
+  }
+}

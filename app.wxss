@@ -1,0 +1,54 @@
+/** 品牌色 · PRD 4.2 */
+page {
+  --brand-text: #333333;
+  --brand-text-2: #444444;
+  --brand-mute: #666666;
+  --black-deep: #0a0a0a;
+  --bg-cream: #edeae6;
+  --bg-cream-2: #e6e2de;
+  --card-white: #ffffff;
+  --divider: #e5e0d8;
+  --accent-top: #f4c95d;
+  --accent-mid: #e8a8a8;
+  --accent-base: #8b6f47;
+  --error: #d9534f;
+  --success: #6fa86f;
+  background-color: var(--bg-cream);
+  color: var(--brand-text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background: #333;
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 24rpx 40rpx;
+  font-size: 28rpx;
+}
+
+.text-muted {
+  color: var(--brand-mute);
+  font-size: 24rpx;
+}
+
+.h1 {
+  font-size: 48rpx;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+.body {
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

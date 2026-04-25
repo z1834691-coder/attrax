@@ -1,0 +1,30 @@
+<view class="page" wx:if="{{st}}">
+  <view class="card">
+    <view class="name">🚗 {{st.device_name}}</view>
+    <view class="line"></view>
+    <view class="row">
+      <text class="dot on"></text>
+      <text wx:if="{{st.online}}">在线 · 最后活跃 {{lastSeen}}</text>
+      <text wx:else>离线</text>
+    </view>
+    <view class="sub text-muted" wx:if="{{!st.current_task}}">当前：闲置中</view>
+  </view>
+
+  <view class="sec">本月气味记录</view>
+  <view class="big">{{monthlyCards}} 张</view>
+
+  <view class="sec">香精瓶</view>
+  <view class="bottles">
+    <view class="b" wx:for="{{st.bottles}}" wx:key="slot_id">
+      <view class="bn">{{item.name}}</view>
+      <view class="bar">
+        <view class="bf" style="width:{{item.remaining_pct}}%"></view>
+      </view>
+      <view class="bp">{{item.remaining_pct}}% <text wx:if="{{item.warning}}">⚠</text></view>
+    </view>
+  </view>
+
+  <button class="btn" bindtap="onMall">耗材商城（演示）</button>
+  <view class="tip text-muted">余量 &lt; 20% 时将通过订阅消息提醒</view>
+</view>
+<view class="empty" wx:else>请先登录并绑定设备</view>

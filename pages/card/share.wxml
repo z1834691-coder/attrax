@@ -1,0 +1,15 @@
+<view class="page" wx:if="{{card}}">
+  <view class="h2">被分享的气味卡片</view>
+  <image class="cover" src="{{card.live_video_cover}}" mode="aspectFill" />
+  <view class="meta">📍 {{card.location_name}}</view>
+  <view class="meta text-muted">🕐 {{timeStr}}</view>
+  <view class="title">「{{card.scent_title}}」</view>
+  <view class="desc">{{card.scent_description}}</view>
+  <view class="row">
+    <view class="pill" wx:for="{{dots}}" wx:key="*this" style="background:{{item}}"></view>
+  </view>
+  <view class="from text-muted" wx:if="{{fromUser}}">来自：{{fromUser}}</view>
+  <button class="cta" bindtap="onReplaySelf" wx:if="{{hasDevice}}">在我的设备上复现</button>
+  <button class="cta outline" bindtap="onWant" wx:else>想要同款</button>
+</view>
+<view class="empty" wx:else>无法加载分享内容</view>

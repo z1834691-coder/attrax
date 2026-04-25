@@ -1,0 +1,57 @@
+.login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 120rpx 48rpx 80rpx;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #e6e2de 0%, #edeae6 40%, #f5f2ee 100%);
+}
+
+.login-hero {
+  text-align: center;
+}
+
+.brand {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 16rpx;
+}
+
+.slogan {
+  font-size: 28rpx;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 12rpx;
+}
+
+.sub {
+  font-size: 24rpx;
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.wx-login-btn {
+  background: #fff;
+  color: #333;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #e5e0d8;
+}
+
+.wx-login-btn.primary {
+  background: #333;
+  color: #fff;
+  border: none;
+}
+
+.small {
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 8rpx;
+}

@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="h2">一键生成 Vlog</view>
+  <view class="text-muted">已选 {{ids.length}} 张（演示版模拟进度）</view>
+  <view class="bar-outer" wx:if="{{loading}}">
+    <view class="bar-in" style="width:{{progress}}%"></view>
+  </view>
+  <view class="done" wx:if="{{done}}">生成完成（正式版为云端 OpenCLAW 输出 MP4）</view>
+  <button class="btn" loading="{{loading}}" disabled="{{done}}" bindtap="onGen">开始生成</button>
+</view>

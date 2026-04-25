@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/auth/login",
+    "pages/auth/bind",
+    "pages/album/index",
+    "pages/card/detail",
+    "pages/card/share",
+    "pages/discover/index",
+    "pages/device/index",
+    "pages/me/index",
+    "pages/vlog/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "自驾气味相册",
+    "navigationBarBackgroundColor": "#EDEAE6",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#EDEAE6",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#333333",
+    "backgroundColor": "#EDEAE6",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/album/index",
+        "text": "相册",
+        "iconPath": "assets/tab-album.png",
+        "selectedIconPath": "assets/tab-album-active.png"
+      },
+      {
+        "pagePath": "pages/discover/index",
+        "text": "发现",
+        "iconPath": "assets/tab-discover.png",
+        "selectedIconPath": "assets/tab-discover-active.png"
+      },
+      {
+        "pagePath": "pages/device/index",
+        "text": "设备",
+        "iconPath": "assets/tab-device.png",
+        "selectedIconPath": "assets/tab-device-active.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的",
+        "iconPath": "assets/tab-me.png",
+        "selectedIconPath": "assets/tab-me-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

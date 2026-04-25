@@ -1,0 +1,4 @@
+{
+  "desc": "自驾气味相册",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

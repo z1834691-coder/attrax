@@ -1,0 +1,28 @@
+<view
+  class="polaroid {{archived ? 'archived' : ''}} {{selected ? 'selected' : ''}}"
+  style="animation-delay: {{delay}}ms"
+  bindtap="onTap"
+  hover-class="polaroid-hover"
+>
+  <view class="polaroid-inner">
+    <view class="polaroid-media" style="padding-top: {{mediaPadding}}%">
+      <image class="polaroid-cover" src="{{card.live_video_cover}}" mode="aspectFill" />
+      <view wx:if="{{archived}}" class="archived-mask">
+        <text class="archived-ico">☁</text>
+        <text>升级恢复</text>
+      </view>
+    </view>
+    <view class="polaroid-foot">
+      <view class="polaroid-title line-clamp">{{card.scent_title}}</view>
+      <view class="polaroid-sub text-muted">{{card.location_name}}</view>
+    </view>
+  </view>
+  <view class="scent-dots" wx:if="{{!compact}}">
+    <view
+      wx:for="{{dotColors}}"
+      wx:key="*this"
+      class="dot"
+      style="background: {{item}}"
+    />
+  </view>
+</view>

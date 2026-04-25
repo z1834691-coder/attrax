@@ -1,0 +1,94 @@
+<view class="page album">
+  <view class="header">
+    <view class="greet">你好，{{nickname}} 👋</view>
+    <view class="stat text-muted">已记录 {{total}} 个气味 moments</view>
+  </view>
+
+  <view class="quota-tip" wx:if="{{quota && quota.card_used >= 40}}">
+    <block wx:if="{{quota.card_used < 45}}">再积累 {{quota.card_remaining}} 张就接近免费上限（50 张）了，订阅可享无限云存。</block>
+    <block wx:elif="{{quota.card_used < 50}}">接近上限，订阅无限存储可保留全部 Live。</block>
+    <block wx:else>免费容量已满，新卡片将按 FIFO 云归档；硬件 SD 卡仍保留全量。点此了解订阅。</block>
+  </view>
+
+  <view class="today-strip" wx:if="{{todayCards.length}}">
+    <view class="strip-title">今日新卡片</view>
+    <scroll-view scroll-x class="strip-scroll" enable-flex>
+      <view class="strip-inner">
+        <view
+          wx:for="{{todayCards}}"
+          wx:key="card_id"
+          class="strip-item"
+          data-id="{{item.card_id}}"
+          bindtap="onOpenCard"
+        >
+          <image class="strip-cover" src="{{item.live_video_cover}}" mode="aspectFill" />
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <scroll-view class="chips" scroll-x enable-flex>
+    <view
+      wx:for="{{filters}}"
+      wx:key="id"
+      class="chip {{filterId==item.id?'on':''}}"
+      data-id="{{item.id}}"
+      bindtap="onFilter"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <view class="select-bar" wx:if="{{selectMode}}">
+    <text>已选 {{selectedIds.length}} 张</text>
+    <view class="bar-actions">
+      <button size="mini" class="link" bindtap="exitSelect">取消</button>
+      <button size="mini" type="default" class="vlog" bindtap="goVlog">生成 Vlog</button>
+    </view>
+  </view>
+
+  <view wx:if="{{!groups.length}}" class="empty">
+    <view class="empty-illus">🎞</view>
+    <view>还没有气味记忆，去车里说一声「拍下这一刻」吧</view>
+  </view>
+
+  <view wx:for="{{displayGroups}}" wx:for-item="g" wx:key="year_month" class="month-block">
+    <view class="month-header" data-ym="{{g.year_month}}" bindtap="onToggleMonth">
+      <text>📅 {{g.yearLabel}}（{{g.count}} 张）</text>
+      <text class="chev">{{g.collapsed ? '▶' : '▼'}}</text>
+    </view>
+    <view class="grid" hidden="{{g.collapsed}}">
+      <view
+        wx:for="{{g.cards}}"
+        wx:for-item="c"
+        wx:key="card_id"
+        class="grid-cell"
+        bindlongpress="onLongSelect"
+        data-id="{{c.card_id}}"
+      >
+        <view
+          class="select-mark"
+          wx:if="{{selectMode}}"
+          catchtap="toggleSelect"
+          data-id="{{c.card_id}}"
+        >{{utils.includes(selectedIds, c.card_id) ? '☑' : '☐'}}</view>
+        <polaroid-card
+          card="{{c}}"
+          delay="{{c._delay}}"
+          archived="{{c.storage_tier=='archived'}}"
+          selected="{{selectMode && utils.includes(selectedIds, c.card_id)}}"
+          bind:tap="onCardTap"
+        />
+      </view>
+    </view>
+  </view>
+</view>
+
+<wxs module="utils">
+function includes(arr, id) {
+  if (!arr || !arr.length) return false;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === id) return true;
+  }
+  return false;
+}
+module.exports.includes = includes;
+</wxs>

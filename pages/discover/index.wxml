@@ -1,0 +1,8 @@
+<view class="page">
+  <view class="h1">发现</view>
+  <view class="text-muted body">热门气味、城市地图、配方榜单为二期能力；黑客松先聚焦「相册 + 复现 + 分享」核心闭环。</view>
+  <view class="row">
+    <view class="tile">热门卡片流 <text class="tag">规划</text></view>
+    <view class="tile">城市气味地图 <text class="tag">规划</text></view>
+  </view>
+</view>

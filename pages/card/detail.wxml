@@ -1,0 +1,71 @@
+<view class="root">
+  <view class="empty" wx:if="{{loading}}">加载中…</view>
+  <view class="empty" wx:elif="{{!card}}">未找到卡片</view>
+  <block wx:else>
+    <view class="page detail">
+      <view class="player-wrap" bindtap="toggleVideo">
+        <image wx:if="{{videoError}}" class="live live-img" src="{{card.live_video_cover}}" mode="aspectFill" />
+        <video
+          wx:else
+          id="lv"
+          class="live"
+          src="{{card.live_video_url}}"
+          poster="{{card.live_video_cover}}"
+          autoplay
+          loop
+          show-center-play-btn="{{false}}"
+          show-play-btn="{{false}}"
+          object-fit="cover"
+          binderror="onVideoErr"
+        />
+      </view>
+
+      <view class="block">
+        <view class="loc">📍 {{card.location_name}}</view>
+        <view class="time text-muted">🕐 {{timeStr}}</view>
+      </view>
+
+      <view class="section">
+        <view class="dim">This moment</view>
+        <view class="title">「{{card.scent_title}}」</view>
+        <view class="desc">{{card.scent_description}}</view>
+      </view>
+
+      <view class="recipe">
+        <view class="rh">调香配方</view>
+        <view class="row" wx:for="{{recipeRows}}" wx:key="label">
+          <view class="r-label">{{item.label}}</view>
+          <view class="r-bar">
+            <view class="r-fill" style="width: {{item.pct}}%; background: {{item.color}}"></view>
+          </view>
+          <view class="r-name">{{item.name}} {{item.ratioText}}</view>
+        </view>
+        <view class="sum text-muted" wx:if="{{card.recipe.ingredients_summary}}">
+          {{card.recipe.ingredients_summary}}
+        </view>
+      </view>
+
+      <view class="note" bindtap="onEditNote">
+        <text class="n-label">备注：</text>
+        <text class="n-body">{{card.user_note || '点击添加备注（演示版）'}}</text>
+      </view>
+
+      <view class="pad-bottom"></view>
+    </view>
+
+    <view class="bar safe-bottom">
+      <view class="bar-item" bindtap="onFav">❤ {{card.is_favorite ? '已藏' : '收藏'}}</view>
+      <view class="bar-item" bindtap="onDrawShare">分享图</view>
+      <view
+        class="bar-item replay"
+        catchtouchstart="onReplayStart"
+        catchtouchend="onReplayEnd"
+        catchtouchcancel="onReplayEnd"
+      >按住复现</view>
+      <view class="bar-item" bindtap="onQr">配方码</view>
+    </view>
+  </block>
+
+  <canvas type="2d" id="shareCanvas" class="hidden-canvas"></canvas>
+  <view class="rep-hint" wx:if="{{replaying}}">正在唤起这一刻的气味…</view>
+</view>

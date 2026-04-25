@@ -1,0 +1,40 @@
+.page {
+  padding: 40rpx;
+}
+
+.h2 {
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.bar-outer {
+  height: 16rpx;
+  background: #eee;
+  border-radius: 8rpx;
+  margin: 32rpx 0;
+  overflow: hidden;
+}
+
+.bar-in {
+  height: 100%;
+  background: #333;
+  transition: width 0.2s;
+}
+
+.btn {
+  background: #333;
+  color: #fff;
+  border-radius: 8rpx;
+  margin-top: 20rpx;
+}
+
+.done {
+  color: #6fa86f;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.text-muted {
+  color: #666;
+}

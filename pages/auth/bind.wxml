@@ -1,0 +1,49 @@
+<view class="page bind">
+  <view class="h2">与车机建立连接</view>
+  <view class="text-muted body">选择一种方式绑定你的设备（Demo 任意方式均可成功）</view>
+
+  <view class="tabs">
+    <view
+      class="tab {{activeTab==0?'on':''}}"
+      data-i="0"
+      bindtap="onTab"
+    >扫码</view>
+    <view
+      class="tab {{activeTab==1?'on':''}}"
+      data-i="1"
+      bindtap="onTab"
+    >绑定码</view>
+    <view
+      class="tab {{activeTab==2?'on':''}}"
+      data-i="2"
+      bindtap="onTab"
+    >蓝牙</view>
+  </view>
+
+  <view wx:if="{{activeTab==0}}" class="panel">
+    <view class="text-muted">扫描车机屏幕上的小程序码（演示将模拟成功）</view>
+    <button class="btn" bindtap="onMockScan" loading="{{loading}}">模拟扫码成功</button>
+  </view>
+
+  <view wx:if="{{activeTab==1}}" class="panel">
+    <view class="text-muted">输入车机端显示的 6 位码</view>
+    <input
+      class="code-input"
+      type="number"
+      maxlength="6"
+      placeholder="例如 198423"
+      value="{{bindCode}}"
+      bindinput="onCodeInput"
+    />
+    <button class="btn" bindtap="onSubmitCode" disabled="{{bindCode.length<6}}" loading="{{loading}}">绑定</button>
+  </view>
+
+  <view wx:if="{{activeTab==2}}" class="panel">
+    <view class="text-muted">打开蓝牙以发现附近车机（需真机，演示直接绑定）</view>
+    <button class="btn" bindtap="onMockBle" loading="{{loading}}">模拟发现设备</button>
+  </view>
+
+  <view class="success-hint" wx:if="{{justBound}}">
+    <text>你的第一张气味卡片即将到来 ✨</text>
+  </view>
+</view>

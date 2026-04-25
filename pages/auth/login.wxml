@@ -1,0 +1,13 @@
+<view class="page login">
+  <view class="login-hero">
+    <view class="brand">自驾气味相册</view>
+    <view class="slogan">Drive, Live, Perfume — and it's life</view>
+    <view class="sub text-muted">随身气味相册 · 车载香氛遥控器</view>
+  </view>
+  <view class="login-actions">
+    <button class="wx-login-btn primary" type="default" disabled="{{loading}}" bindtap="onTapLoginWithProfile">
+      微信一键登录
+    </button>
+    <view class="text-muted small">使用微信头像昵称，用于个人主页展示</view>
+  </view>
+</view>
